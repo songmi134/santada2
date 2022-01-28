@@ -3,7 +3,7 @@ import { List, Space } from 'antd';
 import { HeartTwoTone, MessageOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
-const ListItem = () => {
+const MountainList = () => {
  // 추후 좋아요 & 댓글 수 반영하기
 
   const IconText = ({ icon, text }) => (
@@ -67,4 +67,4 @@ const ListItem = () => {
   );
 };
 
-export default ListItem;
+export default MountainList;
