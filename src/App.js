@@ -12,7 +12,7 @@ import './App.less';
 
 const App = () => {
   return (
-    <BrowserRouter basename="mountain">
+    <BrowserRouter basename="pages">
       <Navbar />
       <Route path="/" exact component={Landing} />
       <Route path="/search" exact component={Search} />
