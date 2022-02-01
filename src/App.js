@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Landing from "./pages/Landing/Landing";
 import Search from "./pages/Search/Search";
 import Community from "./pages/Community/Community";
-//
+/////
 
 const App = () => {
   return (
