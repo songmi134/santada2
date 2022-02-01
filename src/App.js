@@ -1,10 +1,10 @@
-import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Landing from './pages/Landing/Landing';
-import Search from './pages/Search/Search';
-import Community from './pages/Community/Community';
-
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Landing from "./pages/Landing/Landing";
+import Search from "./pages/Search/Search";
+import Community from "./pages/Community/Community";
+//
 
 const App = () => {
   return (
