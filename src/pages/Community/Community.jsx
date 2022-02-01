@@ -26,7 +26,7 @@ const Community = () => {
     {
       title: '작성자',
       dataIndex: 'writer',
-      render: text => text.name,
+      render: text => text?.name,
       sorter: {
         compare: (a, b) => a.writer - b.writer,
         multiple: 3,
