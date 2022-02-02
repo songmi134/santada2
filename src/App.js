@@ -17,8 +17,9 @@ const App = () => {
       <Route path="/" exact component={Landing} />
       <Route path="/search" exact component={Search} />
       <Route path="/community" exact component={Community} />
-      <Route path="/form" exact component={WritingForm} />
-      <Route path="/community/detail" component={CommunityDetail} />
+      <Route path="/new" exact component={WritingForm} />
+      <Route path="/update/:id" exact component={WritingForm} />
+      <Route path="/community/detail/:id" component={CommunityDetail} />
     </BrowserRouter>
   );
 };
