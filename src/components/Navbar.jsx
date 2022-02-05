@@ -46,7 +46,7 @@ const Navbar = () => {
       </Menu.Item>
       
       <Menu.Item key="login">
-        <Link to="/my">
+        <Link to="/login">
             <AvatarWrapper icon={<UserOutlined />} />
         </Link>
       </Menu.Item>
