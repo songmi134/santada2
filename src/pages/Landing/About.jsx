@@ -19,7 +19,9 @@ const About = () => {
           <Title id="about-text">
             <br />
             <br />
+            <br />
             내 주변 산을 검색해보자!
+            <br />
             <br />
             <br />
           </Title>
