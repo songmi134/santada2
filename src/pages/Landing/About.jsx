@@ -40,7 +40,7 @@ const About = () => {
               <Text>
                 <strong>둘!</strong>
                 <br />
-                내가 가고싶은 산 검색
+                산에 대한 여러 정보 확인
               </Text>
             </div>
             <img src={backImg1} alt="image" />
@@ -51,7 +51,7 @@ const About = () => {
               <Text>
                 <strong>셋!</strong>
                 <br />
-                내가 가고싶은 산 검색
+                서로의 등산 경험 공유
               </Text>
             </div>
           </Description>
