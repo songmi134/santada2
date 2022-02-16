@@ -58,8 +58,16 @@ export const ImgS = styled.img`
   height: 40px;
 `;
 
+export const ImgM = styled.img`
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+`;
+
 export const ImgL = styled.img`
   margin-top: 20px;
+  width: 600px;
+  height: 270.01px;
 `;
 
 export const Container = styled.div`
@@ -71,6 +79,7 @@ export const Container = styled.div`
 export const FormContainer = styled(Form)`
   display: flex;
   flex-direction: row;
+  width: 600px;
 `;
 
 export const List = styled.div`
