@@ -53,6 +53,11 @@ export const Writing = styled.div`
   padding-right: 10px;
 `;
 
+export const ImgS = styled.img`
+  width: 40px;
+  height: 40px;
+`;
+
 export const ImgL = styled.img`
   margin-top: 20px;
 `;
