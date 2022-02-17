@@ -35,12 +35,7 @@ export const SubContainer = styled(Row)`
   margin: 50px;
 `;
 
-export const ColoredTag = styled(Tag)`
-  background-color: ${COLORS.primary};
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-`;
+
 
 export const FormContainer = styled(Form)`
   width: 700px;
@@ -57,4 +52,10 @@ export const FormInput = styled(Input)`
 
 export const FormButton = styled(Button)`
   margin-top: 20px;
+`;
+
+export const ColoredCategory = styled(Tag)`
+  background-color: ${COLORS.primary};
+  color: white;
+  border-radius: 10px;
 `;
