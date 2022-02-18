@@ -2,7 +2,12 @@ import React, { useState, useEffect }  from 'react';
 import { Button, Row, Table, Layout, Form, Input, Radio } from 'antd';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Title, MainContainer } from './Community.style';
+import {
+  Title,
+  MainContainer,
+  SubContainer,
+  CateContainer,
+} from './Community.style';
 
 
 const Community = () => {
@@ -115,7 +120,7 @@ const Community = () => {
 
           <Content>
           {categories ? (
-            <Row justify="center" style={{ margin: '20px' }}>
+            <CateContainer>
                  <Radio.Group
                   defaultValue="모든 글"
                   buttonStyle="solid"
@@ -128,12 +133,12 @@ const Community = () => {
                     </Radio.Button>
                   ))}
                 </Radio.Group>
-            </Row>
+            </CateContainer>
             ) : (
               <Row>Loading...</Row>
             )}
 
-            <Row justify="center" align="space-between">
+            <SubContainer>
               <Form>
                 <Form.Item name="search">
                   <Search
@@ -145,7 +150,7 @@ const Community = () => {
               <Link to="/form">
                 <Button type="primary">글쓰기</Button>
               </Link>
-            </Row>
+            </SubContainer>
 
             <Row align="center">
               <Table
