@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import heart1 from "../../src_assets/heart3.png";
 import heart2 from "../../src_assets/heart2.png";
 import axios from "axios";
+import { axiosInstance } from "../../config/axiosConfig";
 import { useParams } from "react-router-dom";
 import { Header, Title, Description, ImgL, ImgS } from "./Detail.style";
 
@@ -29,7 +30,26 @@ const Mountaininfo = () => {
         setImgUrl(response.data.orgUrl);
       }
     };
+    // 내가 찜한산
+    const getMountainLike = async () => {
+      const response2 = await axiosInstance.get(`/likes/me/mountains`);
+      const vnt = response2.data.content;
+
+      const filterLike = vnt.filter(
+        (post) => post.mountain.mountainNo == postId
+      );
+
+      console.log(filterLike.length);
+      if (filterLike.length > 0) {
+        document.getElementById("imgS").src = heart1;
+        setLikeYn(1);
+      } else {
+        document.getElementById("imgS").src = heart2;
+        setLikeYn(0);
+      }
+    };
     getMountains();
+    getMountainLike();
     return () => {
       completed = true;
     };
