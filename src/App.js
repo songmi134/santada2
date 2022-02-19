@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Landing from "./pages/Landing/Landing";
 import Search from "./pages/Search/Search";
@@ -9,6 +9,8 @@ import Login from "./pages/Login/Login";
 import AuthProvider from "./components/login/AuthProvider";
 
 
+
+
 const App = () => {
   return (
     <AuthProvider>
@@ -16,7 +18,7 @@ const App = () => {
         <Navbar />
         <Route path="/" exact component={Landing} />
         <Route path="/login" exact component={Login} />
-        <Route path="/search" exact component={Search} />
+        <Route path="/mountain/search" exact component={Search} />
         <Route path="/community" exact component={Community} />
         <Route path="/community/new" exact component={WritingForm} />
         <Route path="/community/update/:id" exact component={WritingForm} />
