@@ -1,24 +1,76 @@
-import React from 'react';
-import { Form, Input, Button, Tag, Row } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Form, Input, Row, Radio } from 'antd';
+import { FormContainer, FormInput, FormButton } from './Community.style';
+import axios from 'axios';
+import moment from 'moment';
+import { useHistory } from 'react-router-dom';
 
 const WritingForm = () => {
+  const [categories, setCategories] = useState(undefined);
+  const [category, setCategory] = useState(undefined);
+  const history = useHistory();
+  
+  useEffect(() => {
+    let completed = false;
+    const getMountains = async () => {
+      const response = await axios.get('http://localhost:4000/category');
+      if (!completed) {
+        setCategories(response.data);
+      }
+    };
+    getMountains();
+    return () => {
+      completed = true;
+    };
+  }, []);
+
+  const handleCategoryChange = v => setCategory(v.target.value);
+
+  const onFinish = async values => {
+    const createdAt = moment().format('YYYY.MM.DD HH:mm:ss');
+    const newPost = {
+      ...values,
+      createdAt,
+      category,
+      viewCount: 0,
+      writer: { name: '닉네임' },
+    };
+    try {
+      await axios.post('http://localhost:4000/community', newPost);
+      history.push('/community');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
-    <Row justify="center">
-      <Form style={{ width: '700px', marginTop: '30px' }}>
-        <Tag
-          color="var(--color-dark-green)"
-          style={{ borderRadius: '10px', marginBottom: '10px' }}
+    <Row>
+       <FormContainer onFinish={onFinish}>
+        <Radio.Group
+          defaultValue={1}
+          buttonStyle="solid"
+          onChange={handleCategoryChange}
         >
-          산후기
-        </Tag>
-        <Form.Item>
-          <Input
-            placeholder="제목을 입력하세요"
-            size="large"
-            style={{ height: '60px', fontSize: '2rem', fontWeight: 'bold' }}
-          />
+          {categories ? (
+            categories.map(v => (
+              <Radio.Button key={v.cateId} value={v.cateName}>
+              {v.cateName}
+            </Radio.Button>
+          ))
+        ) : (
+          <Row>Loading...</Row>
+        )}
+      </Radio.Group>
+        <Form.Item
+          name="title"
+          rules={[{ required: true, message: '제목을 입력하세요!' }]}
+        >
+          <FormInput placeholder="제목을 입력하세요" />
         </Form.Item>
-        <Form.Item>
+        <Form.Item
+          name="content"
+          rules={[{ required: true, message: '내용을 입력하세요!' }]}
+        >
           <Input.TextArea
             rows={15}
             placeholder="내용을 입력하세요"
@@ -29,12 +81,12 @@ const WritingForm = () => {
         </Form.Item>
         <Row align="end">
           <Form.Item>
-            <Button type="primary" size="large" style={{ marginTop: '20px' }}>
+            <FormButton type="primary" size="large" htmlType="submit">
               글쓰기
-            </Button>
+            </FormButton>
           </Form.Item>
         </Row>
-      </Form>
+      </FormContainer>
     </Row>
   );
 };
