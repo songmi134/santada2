@@ -9,6 +9,7 @@ import WritingForm from "./pages/Community/WritingForm";
 import Login from "./pages/Login/Login";
 import AuthProvider from "./components/login/AuthProvider";
 
+
 const App = () => {
   return (
     <AuthProvider>
@@ -19,7 +20,8 @@ const App = () => {
         <Route path="/search" exact component={Search} />
         <Route path="/search/detail" exact component={Detail} />
         <Route path="/community" exact component={Community} />
-        <Route path="/form" exact component={WritingForm} />
+        <Route path="/community/new" exact component={WritingForm} />
+        <Route path="/community/update/:id" exact component={WritingForm} />
       </BrowserRouter>
     </AuthProvider>
   );
