@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import heart1 from "../../src_assets/heart3.png";
 import heart2 from "../../src_assets/heart2.png";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { Header, Title, Description, ImgL, ImgS } from "./Detail.style";
 
 const Mountaininfo = () => {
@@ -11,17 +12,21 @@ const Mountaininfo = () => {
   const [imgUrl, setImgUrl] = useState(undefined); //이미지
   const [likeYn, setLikeYn] = useState(0); //좋아요
 
+  const params = useParams();
+  const postId = params.id;
+
   // 임시 데이터
   useEffect(() => {
     let completed = false;
+    // 산 상세정보
     const getMountains = async () => {
-      const response = await axios.get("http://localhost:3000/data/data.json");
+      const response = await axios.get(`/mountains/${postId}`);
+
       if (!completed) {
-        setMountainName(response.data.mountains[0].mountainName);
-        setMountainInfo(response.data.mountains[0].mountainInfo);
-        setTransInfo(response.data.mountains[0].addressDetail);
-        setImgUrl(response.data.mountains[0].imgUrl);
-        //console.log("1: "+ response.data.mountains[0].addressDetail);
+        setMountainName(response.data.mountainName);
+        setMountainInfo(response.data.mountainInfo);
+        setTransInfo(response.data.transInfo);
+        setImgUrl(response.data.orgUrl);
       }
     };
     getMountains();
