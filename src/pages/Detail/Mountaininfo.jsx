@@ -55,13 +55,26 @@ const Mountaininfo = () => {
     };
   }, []);
 
-  const imgChange = () => {
+  const imgChange = async () => {
     if (likeYn === 0) {
-      document.getElementById("imgS").src = heart2;
-      setLikeYn(1);
+      const newPost = {
+        mountainNo: postId,
+      };
+      try {
+        await axiosInstance.post(`/likes/me/mountains`, newPost);
+        document.getElementById("imgS").src = heart1;
+        setLikeYn(1);
+      } catch (err) {
+        console.log(err);
+      }
     } else {
-      document.getElementById("imgS").src = heart1;
-      setLikeYn(0);
+      try {
+        await axiosInstance.delete(`/likes/me/mountains/${postId}`);
+        document.getElementById("imgS").src = heart2;
+        setLikeYn(0);
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
