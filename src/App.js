@@ -8,6 +8,7 @@ import Community from "./pages/Community/Community";
 import WritingForm from "./pages/Community/WritingForm";
 import Login from "./pages/Login/Login";
 import AuthProvider from "./components/login/AuthProvider";
+import My from './pages/My/My';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/community" exact component={Community} />
         <Route path="/community/new" exact component={WritingForm} />
         <Route path="/community/update/:id" exact component={WritingForm} />
+        <Route path="/my" component={My} />
       </BrowserRouter>
     </AuthProvider>
   );
