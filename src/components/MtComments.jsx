@@ -13,6 +13,7 @@ import moment from "moment";
 import axios from "axios";
 import { axiosInstance } from "../config/axiosConfig";
 import { useParams } from "react-router-dom";
+import DeleteModal from "./DeleteModal";
 
 const CommentList = ({ comments }) => {
   const [form] = Form.useForm();
@@ -134,6 +135,13 @@ const CommentList = ({ comments }) => {
           </Form.Item>
         </Form>
       </Modal>
+
+      <DeleteModal
+        visible={isModalVisible}
+        onCancle={handleCancel}
+        title="댓글"
+        url={`/mountains/${postNo}/comments/${comment?.commentNo}`}
+      />
     </>
   );
 };
