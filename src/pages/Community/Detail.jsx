@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Button, Space, Layout, Modal } from 'antd';
+import Comments from '../../components/Comments';
 import {
   Title,
   Description,
@@ -84,7 +85,9 @@ const Detail = () => {
                 </Button>
               </Space>
             </Row>
-           
+            <Footer>
+              <Comments />
+            </Footer>
           </Layout>
         </Container>
       ) : (
