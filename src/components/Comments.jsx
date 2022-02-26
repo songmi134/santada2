@@ -10,7 +10,7 @@ import {
   Tooltip,
 } from 'antd';
 import moment from 'moment';
-import axios from 'axios';
+import { axiosInstance } from "../config/axiosConfig";
 import { useParams } from 'react-router-dom';
 import DeleteModal from './DeleteModal';
 
@@ -27,31 +27,41 @@ const CommentList = ({ comments }) => {
     setIsEditModalVisible(false);
   };
 
-  const showEditModal = comment => {
+  const showEditModal = (comment) => {
     setComment(comment);
     setIsEditModalVisible(true);
   };
 
-  const showDeleteConfirm = comment => {
+  const showDeleteConfirm = async (comment) => {
     setComment(comment);
     setIsModalVisible(true);
-  };
-
-  const editComment = async updatedComment => {
+    
     try {
-      await axios.patch(
-        `/communities/${postNo}/comments/${comment.commentNo}`,
-        updatedComment
+      await axiosInstance.delete(
+        `/communities/${postNo}/comments/${comment.commentNo}`
       );
+      setIsModalVisible(false);
+      setIsEditModalVisible(false);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const handleEdit = values => {
-    const updatedAt = moment().format('YYYY.MM.DD HH:mm:ss');
-    const updatedComment = { ...values, updatedAt };
-    editComment(updatedComment);
+  const editComment = async (updatedComment) => {
+   
+    try {
+      await axiosInstance.patch(
+        `/communities/${postNo}/comments/${comment.commentNo}`,
+      );
+      setIsModalVisible(false);
+      setIsEditModalVisible(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleEdit = (values) => {
+    editComment(values);
     setIsModalVisible(false);
   };
 
@@ -74,7 +84,7 @@ const CommentList = ({ comments }) => {
           comments.length > 1 ? 'replies' : 'reply'
         }`}
         itemLayout="horizontal"
-        renderItem={props => (
+        renderItem={(props) => (
           <Comment
             actions={[
               <Button
@@ -176,7 +186,7 @@ const Comments = () => {
   useEffect(() => {
     let completed = false;
     const getComments = async () => {
-      const response = await axios.get(`/communities/${postNo}/comments`);
+      const response = await axiosInstance.get(`/communities/${postNo}/comments`);
       if (!completed) {
         setComments(response.data.content);
       }
@@ -211,18 +221,12 @@ const Comments = () => {
     // 렌더링 될 수 있도록 로그인 붙인 후 수정
     try {
       setSubmitting(false);
-      setValue('');
+      setValue("");
       const newComment = {
-        // 무슨 데이터 들어갈지
-        user: {
-          name: '닉네임',
-          imgUrl: 'https://joeschmoe.io/api/v1/random',
-        },
-        commentContent: value,
-        createdAt: moment().fromNow(),
+        content: value,
       };
       console.log(newComment); // For check
-      await axios.post(`/communities/${postNo}/comments`, newComment);
+      await axiosInstance.post(`/communities/${postNo}/comments`, newComment);
     } catch (err) {
       console.log(err);
     }
