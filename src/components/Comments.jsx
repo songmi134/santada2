@@ -195,28 +195,11 @@ const Comments = () => {
     return () => {
       completed = true;
     };
-  }, []);
+  }, [comments]);
 
   const handleSubmit = async () => {
     if (!value) return;
     setSubmitting(true);
-
-    /* 댓글 달기 테스트
-    setTimeout(() => {
-      setSubmitting(false);
-      setValue('');
-      setComments([
-        ...comments,
-        {
-          user: {
-            name: '닉네임',
-            imgUrl: 'https://joeschmoe.io/api/v1/random',
-          },
-          commentContent: value,
-          createdAt: moment().fromNow(),
-        },
-      ]);
-    }, 1000);*/
 
     // 렌더링 될 수 있도록 로그인 붙인 후 수정
     try {
