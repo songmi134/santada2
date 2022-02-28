@@ -6,6 +6,7 @@ import Search from "./pages/Search/Search";
 import Detail from "./pages/Detail/Detail";
 import Community from "./pages/Community/Community";
 import WritingForm from "./pages/Community/WritingForm";
+import CommunityDetail from './pages/Community/Detail';
 import Login from "./pages/Login/Login";
 import AuthProvider from "./components/login/AuthProvider";
 
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/community" exact component={Community} />
         <Route path="/community/new" exact component={WritingForm} />
         <Route path="/community/update/:id" exact component={WritingForm} />
+        <Route path="/community/:id" component={CommunityDetail} />
       </BrowserRouter>
     </AuthProvider>
   );

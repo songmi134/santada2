@@ -1,6 +1,6 @@
 import { COLORS } from '../.././constants';
 import styled from 'styled-components';
-import { Row, Tag, Form, Input, Button } from 'antd';
+import { Row, Tag, Form, Input, Button, Table } from 'antd';
 
 export const Title = styled.div`
   font-size: 2rem;
@@ -64,4 +64,8 @@ export const ColoredCategory = styled(Tag)`
   background-color: ${COLORS.primary};
   color: white;
   border-radius: 10px;
+`;
+
+export const CommunityTable = styled(Table)`
+  width: 100%;
 `;
