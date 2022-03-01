@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Slider, Row, Form, Select, Button, Space, Col, Tag } from 'antd';
-import { sido, sigungu } from './AddressData'
+import { sido, sigungu } from './AddressData';
 import { FormContainer, MountainHeight } from './Search.style';
 
 const Searchbar = () => {
@@ -32,44 +32,44 @@ const Searchbar = () => {
   const changeAddress2 = value => {
     setAddress2(value);
   };
- 
+
   return (
     <FormContainer>
-    <Row justify="center" align="center">
-      <Col xs={24} xl={8}>
-        <Row justify="center" align="center">
-          <Form.Item>
-            <Select
-              placeholder="시/도"
-              onChange={changeAddress1}
-              value={address1}
-              style={{ width: '130px' }}
-            >
-              {sido.map(s => (
-                <Option key={s} value={s}>
-                  {s}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
-          <Form.Item>
-            <Select
-              placeholder="시/군/구"
-              onChange={changeAddress2}
-              value={address2}
-            >
-              {address1 ? (
-                sigungu[address1].sort().map(s => (
+      <Row justify="center" align="center">
+        <Col xs={24} xl={8}>
+          <Row justify="center" align="center">
+            <Form.Item>
+              <Select
+                placeholder="시/도"
+                onChange={changeAddress1}
+                value={address1}
+                style={{ width: '130px' }}
+              >
+                {sido.map(s => (
                   <Option key={s} value={s}>
                     {s}
                   </Option>
-                ))
-              ) : (
-                <></>
-              )}
-            </Select>
-          </Form.Item>
-        </Row>
+                ))}
+              </Select>
+            </Form.Item>
+            <Form.Item>
+              <Select
+                placeholder="시/군/구"
+                onChange={changeAddress2}
+                value={address2}
+              >
+                {address1 ? (
+                  sigungu[address1].sort().map(s => (
+                    <Option key={s} value={s}>
+                      {s}
+                    </Option>
+                  ))
+                ) : (
+                  <></>
+                )}
+              </Select>
+            </Form.Item>
+          </Row>
         </Col>
         <Col xs={24} xl={15}>
           <MountainHeight>산 높이</MountainHeight>

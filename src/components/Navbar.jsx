@@ -3,7 +3,7 @@ import logo from '.././src_assets/mountain-logo.png';
 import { Link } from 'react-router-dom';
 import { Menu, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Nav = styled.div`
   padding: 10px;
@@ -23,6 +23,7 @@ const Navbar = () => {
     
     setCurrent(e.key);
   };
+
   return (
   <Nav>
     <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
@@ -33,7 +34,7 @@ const Navbar = () => {
       </Menu.Item>
 
       <Menu.Item key="search">
-        <Link to="/search">산 검색</Link>
+        <Link to="/mountain/search">산 검색</Link>
       </Menu.Item>
 
       <Menu.Item key="community">

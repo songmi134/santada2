@@ -9,18 +9,21 @@ import WritingForm from "./pages/Community/WritingForm";
 import Login from "./pages/Login/Login";
 import AuthProvider from "./components/login/AuthProvider";
 
+
 const App = () => {
   return (
     <AuthProvider>
-      <BrowserRouter basename="mountain">
+      <BrowserRouter basename="pages">
         <Navbar />
+    
         <Route path="/" exact component={Landing} />
         <Route path="/login" exact component={Login} />
-        <Route path="/search" exact component={Search} />
+        <Route path="/mountain/search" exact component={Search} />
         <Route path="/mountain/search/:id" exact component={Detail} />
         <Route path="/community" exact component={Community} />
         <Route path="/community/new" exact component={WritingForm} />
         <Route path="/community/update/:id" exact component={WritingForm} />
+        
       </BrowserRouter>
     </AuthProvider>
   );

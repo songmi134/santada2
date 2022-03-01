@@ -49,7 +49,7 @@ const Community = () => {
   const [allPosts, setAllPosts] = useState(undefined);
   const [categories, setCategories] = useState(undefined);
   const [category, setCategory] = useState(undefined);
-
+  
   // 검색 기능 구현 - API로 변경
   const [userInput, setUserInput] = useState('');
 

@@ -7,12 +7,12 @@ import MountainList from './MountainList';
 const Search = () => {
   return (
     <>
-       <Row justify="center">
+      <Row justify="center">
         <Col xs={24} xl={10}>
           <Searchbar />
           <MapContainer />
         </Col>
-        <Col xs={24} x1={10}>
+        <Col xs={24} xl={10}>
           <MountainList />
         </Col>
       </Row>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Switch, Row, Space } from 'antd';
 
@@ -9,7 +8,6 @@ const MapContainer = () => {
 
   useEffect(() => {
     const container = document.getElementById('map');
-
     const options = {
       center: new kakao.maps.LatLng(35.85133, 127.734086),
       level: 7,

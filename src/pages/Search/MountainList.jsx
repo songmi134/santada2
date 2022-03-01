@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 const MountainList = () => {
   // 추후 좋아요 & 댓글 수 반영하기
-
   const IconText = ({ icon, text }) => (
     <Space>
       {React.createElement(icon)}
