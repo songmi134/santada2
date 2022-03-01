@@ -12,7 +12,7 @@ const Search = () => {
           <Searchbar />
           <MapContainer />
         </Col>
-        <Col xs={24} x1={10}>
+        <Col xs={24} xl={10}>
           <MountainList />
         </Col>
       </Row>
