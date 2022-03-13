@@ -14,7 +14,7 @@ const MyComments = () => {
     let completed = false;
     const getcomments = async () => {
       const response = await axiosInstance.get(
-        "/mountains/users/" + user.data.id
+        "/mountains/comments/" + user.data.id
       );
       if (!completed) {
         console.log(response.data.content);
