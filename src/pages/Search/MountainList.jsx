@@ -5,6 +5,10 @@ import axios from "axios";
 import { MountainHeight, MountainName } from "./Search.style";
 import { Link } from "react-router-dom";
 
+export default axios.create({
+  baseURL: "https://santada.herokuapp.com/",
+});
+
 const MountainList = () => {
   // 추후 좋아요 & 댓글 수 반영하기
 
