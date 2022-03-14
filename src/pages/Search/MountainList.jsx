@@ -5,8 +5,12 @@ import axios from "axios";
 import { MountainHeight, MountainName } from "./Search.style";
 import { Link } from "react-router-dom";
 
-export default axios.create({
+
+const axiosInstance = axios.create({
   baseURL: "https://santada.herokuapp.com/",
+  headers: {
+    Authorization: "",
+  },
 });
 
 const MountainList = () => {
@@ -24,7 +28,7 @@ const MountainList = () => {
   useEffect(() => {
     let completed = false;
     const getMountains = async () => {
-      const response = await axios.get("/mountains");
+      const response = await axiosInstance.get("/mountains");
       if (!completed) {
         setMountains(response.data.content);
       }
