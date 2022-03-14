@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const axiosInstance = axios.create({
   baseURL: "https://santada.herokuapp.com/",
   headers: {
-    Authorization: "",
+    'Access-Control-Allow-Origin' : '*',
   },
 });
 
