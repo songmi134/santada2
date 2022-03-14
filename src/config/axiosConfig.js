@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: "https://santada.herokuapp.com/",
   headers: {
     Authorization: "",
   },
