@@ -1,7 +1,7 @@
 {
   "name": "mountain",
   "version": "0.1.0",
-  "proxy": "https://santada.herokuapp.com",
+  "proxy": "https://santadainfo.herokuapp.com",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
