@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
   baseURL: "https://santada.herokuapp.com/",
   headers: {
     "Access-Control-Allow-Origin" : "*",
-    "Access-Control-Allow-Credentials", "true"
+    "Access-Control-Allow-Credentials" : "true"
   },
 });
 
