@@ -9,7 +9,9 @@ import { Link } from "react-router-dom";
 const axiosInstance = axios.create({
   baseURL: "https://santada.herokuapp.com/",
   headers: {
-    'Access-Control-Allow-Origin' : '*',
+    "Content-Type": 'applicaion/json;charset=UFT-8',
+    "Access-Control-Allow-Origin" : "*",
+    "Accept": "application/json",
   },
 });
 
