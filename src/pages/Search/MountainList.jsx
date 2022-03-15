@@ -5,15 +5,6 @@ import axios from "axios";
 import { MountainHeight, MountainName } from "./Search.style";
 import { Link } from "react-router-dom";
 
-
-const axiosInstance = axios.create({
-  baseURL: "https://santada.herokuapp.com/",
-  headers: {
-    "Access-Control-Allow-Origin" : "*",
-    "Access-Control-Allow-Credentials" : "true"
-  },
-});
-
 const MountainList = () => {
   // 추후 좋아요 & 댓글 수 반영하기
 
@@ -29,7 +20,7 @@ const MountainList = () => {
   useEffect(() => {
     let completed = false;
     const getMountains = async () => {
-      const response = await axiosInstance.get("/mountains");
+      const response = await axios.get("/mountains");
       if (!completed) {
         setMountains(response.data.content);
       }
